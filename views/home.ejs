@@ -1,0 +1,52 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/add-project">Add New Project</a>|
+        <a href="/all-projects">View All Projects</a>
+    </nav>
+    <h1>Welcome, <%= user.displayName %>! Here are your projects:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Keywords</th>
+                <th>Authors</th>
+                <th>Contact Email</th>
+                <th>Collaboration</th>
+                <th>Status</th>
+                <th>Files</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% projects.forEach((project, index) => { %>
+                <tr>
+                    <td><%= project.name %></td>
+                    <td><%= project.description %></td>
+                    <td><%= project.keywords.join(', ') %></td>
+                    <td><%= project.authors %></td>
+                    <td><%= project.contactEmail %></td>
+                    <td><%= project.collaboration ? 'Yes' : 'No' %></td>
+                    <td><%= project.status %></td>
+                    <td>
+                        <% project.files.forEach(file => { %>
+                            <a href="<%= file %>" target="_blank"><%= file.split('/').pop() %></a>
+                        <% }); %>
+                    </td>
+                    <td><a href="/edit-project/<%= index %>">Edit</a></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

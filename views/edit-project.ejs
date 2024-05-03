@@ -1,0 +1,34 @@
+<!-- views/edit-project.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Edit Project</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/home">Your Projects</a>
+    </nav>
+    <h1>Edit Project: <%= project.name %></h1>
+    <form action="/update-project/<%= projectId %>" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" value="<%= project.name %>" required>
+        <input type="text" name="description" value="<%= project.description %>" required>
+        <input type="text" name="authors" value="<%= project.authors %>">
+        <input type="text" name="contactEmail" value="<%= project.contactEmail %>">
+        <input type="checkbox" name="collaboration" value="true" <%= project.collaboration ? 'checked' : '' %>> Looking for Collaboration
+        <input type="text" name="keywords" value="<%= project.keywords.join(', ') %>">
+        <label for="status">Project Status:</label>
+        <select id="status" name="status">
+            <option value="In Prep" <%= project.status === 'In Prep' ? 'selected' : '' %>>In Prep</option>
+            <option value="Ongoing" <%= project.status === 'Ongoing' ? 'selected' : '' %>>Ongoing</option>
+            <option value="Finished" <%= project.status === 'Finished' ? 'selected' : '' %>>Finished</option>
+        </select>
+        <input type="file" name="projectFile">
+        <button type="submit">Update Project</button>
+        <button formaction="/delete-project/<%= projectId %>" formmethod="post">Delete Project</button>
+    </form>
+</body>
+</html>

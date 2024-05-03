@@ -1,0 +1,132 @@
+/* public/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+@media screen and (max-width: 600px) {
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Add to your style.css file */
+.form-group {
+    margin-bottom: 20px; /* This increases the space between each form input */
+}
+
+input[type="text"],
+input[type="file"],
+select,
+textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Padding inside the inputs */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Makes sure padding doesn't affect width */
+    margin-top: 6px; /* Margin top for labels */
+    margin-bottom: 16px; /* Space after the inputs */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Padding */
+    border: none;
+    border-radius: 4px; /* Rounded borders */
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+label {
+    font-size: 16px; /* Increase the font size for labels */
+    display: block; /* Makes label appear above the input field */
+    font-weight: bold;
+    margin-top: 10px; /* Space above the label */
+}
+/* Styles specifically for form controls and their labels */
+.form-group label {
+    display: inline-block; /* Makes label inline for better control */
+    vertical-align: middle; /* Aligns text vertically in the middle */
+    margin-right: 10px; /* Right margin for spacing between label and input */
+    cursor: pointer; /* Indicates that label is clickable */
+}
+
+/* Custom styling for all form input elements including checkboxes for better alignment */
+input[type="text"],
+input[type="file"],
+input[type="checkbox"], /* Added checkbox to this rule for consistency */
+select,
+textarea {
+    vertical-align: middle; /* Aligns inputs vertically in the middle */
+    cursor: pointer;
+}
+
+/* Specific enhancements for checkboxes */
+input[type="checkbox"] {
+    width: 20px; /* Width of the checkbox */
+    height: 20px; /* Height of the checkbox */
+    -webkit-appearance: none; /* Removes default webkit styles */
+    appearance: none; /* Removes default styles */
+    background-color: #f4f4f4; /* Light grey background */
+    border: 2px solid #ccc; /* Grey border */
+    transition: background 0.3s, border-color 0.3s; /* Smooth transitions for visual effects */
+    margin-right: 5px; /* Space between the checkbox and the label text */
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4CAF50; /* Green background when checked */
+    border-color: #4CAF50; /* Green border to match */
+}
+
+/* Ensuring labels align with the middle of inputs */
+label {
+    font-weight: bold; /* Bold text for labels */
+    line-height: 1.5; /* Adjust line height to better align with inputs */
+    display: inline-block; /* Ensures label text does not wrap below checkbox */
+}

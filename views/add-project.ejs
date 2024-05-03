@@ -1,0 +1,68 @@
+<!-- views/add-project.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Add Project</title>
+</head>
+<div class="form-group">
+    <label for="collaboration">Looking for Collaboration:</label>
+    <input type="checkbox" id="collaboration" name="collaboration" value="true">
+</div>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/home">My Projects</a> |
+        <a href="/all-projects">View All Projects</a>
+    </nav>
+    <h1>Add a New Project</h1>
+    <form action="/add-project" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Project Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Project Description:</label>
+            <input type="text" id="description" name="description" required>
+        </div>
+        <div class="form-group">
+            <label for="authors">Author(s):</label>
+            <input type="text" id="authors" name="authors">
+        </div>
+
+      </div>
+      <div class="form-group">
+          <label for="contactEmail">Contact Email:</label>
+          <input type="text" id="contactEmail" name="contactEmail">
+      </div>
+
+        <div class="form-group">
+            <label for="keywords">Enter Keywords (separated by commas):</label>
+            <input type="text" id="keywords" name="keywords">
+        </div>
+        <div class="form-group">
+            <label for="collaboration">Looking for Collaboration:</label>
+            <input type="checkbox" id="collaboration" name="collaboration" value="true">
+        </div>
+        <!-- Part of views/add-project.ejs -->
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="Ongoing">Ongoing</option>
+                <option value="In Prep">In Prep</option>
+                <option value="Finished">Finished</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="projectFile">Upload File:</label>
+            <input type="file" id="projectFile" name="projectFile">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add Project">
+        </div>
+    </form>
+</body>
+</html>

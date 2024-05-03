@@ -1,0 +1,49 @@
+<!-- views/all-projects.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/home">My Projects</a> |
+    </nav>
+    <h1><%= heading %></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Keywords</th>
+                <th>Author(s)</th>
+                <th>Collaboration</th>
+                <th>Status</th>
+                <th>Files</th>
+                <th>Contact Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% projects.forEach(project => { %>
+                <tr>
+                    <td><%= project.name %></td>
+                    <td><%= project.description %></td>
+                    <td><%= project.keywords.join(', ') %></td>
+                    <td><%= project.authors %></td>
+                    <td><%= project.collaboration ? 'Yes' : 'No' %></td>
+                    <td><%= project.status %></td>
+                    <td>
+                        <% project.files.forEach(file => { %>
+                            <a href="<%= file %>" target="_blank"><%= file.split('/').pop() %></a>
+                        <% }); %>
+                    </td>
+                    <td><%= project.contactEmail %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
